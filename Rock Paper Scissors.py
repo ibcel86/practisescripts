@@ -115,12 +115,17 @@ def main():
 
     reset_scores()
 
-    play_again = input("Do you want to play again? (yes/no): ").lower()
-    if play_again == "yes" or play_again == "y":
-        main()
-    elif play_again == "no" or play_again == "n":
-        print("Game has ended")
-        reset_scores()
+    while True:
+        play_again = input("Do you want to play again? (yes/no): ").lower()
+        if play_again == "yes" or play_again == "y":
+            main()  # Restart the game
+            break  # Exit the loop after restarting
+        elif play_again == "no" or play_again == "n":
+            print("The game has ended")
+            reset_scores()  # Reset scores at the end
+            break  # Exit the loop and end the game
+        else:
+            print("Invalid input. Please enter 'yes' or 'no'.")
 
 main()
     
